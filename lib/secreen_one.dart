@@ -21,7 +21,7 @@ class _secreen_oneState extends State<secreen_one> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(theme: ThemeData(fontFamily: "Lobster"),
         home: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.red,
@@ -62,9 +62,9 @@ class _secreen_oneState extends State<secreen_one> {
                       });
                     },
                   ),
-                  chwidget(), ggg("checkname"),ggg("hhhhhhh"),
-                  // chwidget("Two Players"),
-                  // chwidget("Three Players"),
+                  ggg("One player"),
+                  ggg("Two players"),
+                  ggg("Three players"),
 
                   RadioListTile(
                     title: Text(
@@ -131,12 +131,16 @@ class ggg extends StatelessWidget {
   String? checkname;
   @override
   Widget build(BuildContext context) {
-    return chwidget();
+    return Row(
+      children: [Text("${checkname}"),
+        chwidget(),
+      ],
+    );
   }
 }
 
 class chwidget extends StatefulWidget {
-  chwidget();
+  const chwidget({super.key});
 
   @override
   State<chwidget> createState() => _chwidgetState();
@@ -147,12 +151,7 @@ class _chwidgetState extends State<chwidget> {
   String? checkname;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          "${checkname}",
-          style: TextStyle(color: Colors.amber),
-        ),
+    return 
         Checkbox(
           checkColor: Colors.white,
           value: isChecked,
@@ -161,8 +160,8 @@ class _chwidgetState extends State<chwidget> {
               isChecked = value!;
             });
           },
-        ),
-      ],
+        
+      
     );
   }
 }
